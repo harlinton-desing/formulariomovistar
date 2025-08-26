@@ -414,86 +414,127 @@ function correctData() {
     summaryModal.hide();
 }
 
-// FUNCIÓN CON EMOJIS PARA WHATSAPP DEL CLIENTE - VERSIÓN RELÁMPAGO
+// FUNCIÓN CORREGIDA CON EMOJIS PARA WHATSAPP DEL CLIENTE - VERSIÓN RELÁMPAGO
 function sendToWhatsApp() {
     const phoneNumber = '573125198465';
     
-    let message = '⚡ *NUEVO REGISTRO CLIENTE* ⚡\n\n';
+    // Crear emojis usando códigos Unicode para garantizar compatibilidad
+    const lightningEmoji = String.fromCodePoint(0x26A1);
+    const personEmoji = String.fromCodePoint(0x1F464);
+    const memoEmoji = String.fromCodePoint(0x1F4DD);
+    const documentEmoji = String.fromCodePoint(0x1F4C4);
+    const birthdayEmoji = String.fromCodePoint(0x1F382);
+    const emailEmoji = String.fromCodePoint(0x1F4E7);
+    const phoneEmoji = String.fromCodePoint(0x1F4F1);
+    const houseEmoji = String.fromCodePoint(0x1F3E0);
+    const buildingEmoji = String.fromCodePoint(0x1F3E2);
+    const cityEmoji = String.fromCodePoint(0x1F3D8);
+    const numbersEmoji = String.fromCodePoint(0x1F522);
+    const constructionEmoji = String.fromCodePoint(0x1F3D7);
+    const doorEmoji = String.fromCodePoint(0x1F6AA);
+    const mapEmoji = String.fromCodePoint(0x1F5FA);
+    const chartEmoji = String.fromCodePoint(0x1F4CA);
+    const targetEmoji = String.fromCodePoint(0x1F3AF);
+    const moneyEmoji = String.fromCodePoint(0x1F4B0);
+    const clipboardEmoji = String.fromCodePoint(0x1F4CB);
+    const clockEmoji = String.fromCodePoint(0x23F0);
+    const rocketEmoji = String.fromCodePoint(0x1F680);
+    const checkEmoji = String.fromCodePoint(0x2705);
     
-    message += `⏰ Fecha de registro: ${formData.fechaEnvio}\n\n`;
-    message += '👤 *INFORMACION PERSONAL:*\n';
-    message += `📝 Nombre: ${formData.nombreCompleto}\n`;
-    message += `📄 Documento: ${formData.tipoDocumento} ${formData.numeroDocumento}\n`;
-    message += `🎂 Fecha Nacimiento: ${formData.fechaNacimiento}\n`;
-    message += `🎂 Fecha Expedicion: ${formData.fechaExpedicion}\n`;
-    message += `📧 Email: ${formData.correo}\n`;
-    message += `📱 Celular: ${formData.celular}\n\n`;
+    let message = `${lightningEmoji} *NUEVO REGISTRO CLIENTE RELAMPAGO* ${lightningEmoji}\n\n`;
+    message += `${clockEmoji} Fecha de registro: ${formData.fechaEnvio}\n\n`;
+    message += `${personEmoji} *INFORMACION PERSONAL:*\n`;
+    message += `${memoEmoji} Nombre: ${formData.nombreCompleto}\n`;
+    message += `${documentEmoji} Documento: ${formData.tipoDocumento} ${formData.numeroDocumento}\n`;
+    message += `${birthdayEmoji} Fecha Nacimiento: ${formData.fechaNacimiento}\n`;
+    message += `${birthdayEmoji} Fecha Ezpedicion: ${formData.fechaExpedicion}\n`;
+    message += `${emailEmoji} Email: ${formData.correo}\n`;
+    message += `${phoneEmoji} Celular: ${formData.celular}\n\n`;
     
-    message += '🏠 *INFORMACION DE VIVIENDA:*\n';
-    message += `📍 Direccion: ${formData.direccion}\n`;
-    message += `🏢 Tipo: ${formData.tipoVivienda.toUpperCase()}\n`;
+    message += `${houseEmoji} *INFORMACION DE VIVIENDA:*\n`;
+    message += `${mapEmoji} Direccion: ${formData.direccion}\n`;
+    message += `${buildingEmoji} Tipo: ${formData.tipoVivienda.toUpperCase()}\n`;
     
     if (formData.piso) {
-        message += `🔢 Piso: ${formData.piso}\n`;
+        message += `${numbersEmoji} Piso: ${formData.piso}\n`;
     }
     if (formData.nombreConjunto) {
-        message += `🏘️ Conjunto: ${formData.nombreConjunto}\n`;
+        message += `${cityEmoji} Conjunto: ${formData.nombreConjunto}\n`;
     }
     if (formData.torreBloque) {
-        message += `🏗️ Torre/Bloque: ${formData.torreBloque}\n`;
+        message += `${constructionEmoji} Torre/Bloque: ${formData.torreBloque}\n`;
     }
     if (formData.aptoCasa) {
-        message += `🚪 Apto/Casa: ${formData.aptoCasa}\n`;
+        message += `${doorEmoji} Apto/Casa: ${formData.aptoCasa}\n`;
     }
     
-    message += `🗺️ Ubicacion: ${formData.departamento} - ${formData.municipio}\n`;
-    message += `🏘️ Barrio: ${formData.barrio}\n`;
-    message += `📊 Estrato: ${formData.estrato}\n\n`;
+    message += `${mapEmoji} Ubicacion: ${formData.departamento} - ${formData.municipio}\n`;
+    message += `${cityEmoji} Barrio: ${formData.barrio}\n`;
+    message += `${chartEmoji} Estrato: ${formData.estrato}\n\n`;
     
-    message += '⚡ *PLAN RELAMPAGO SELECCIONADO:*\n';
-    message += `🎯 Plan: ${formData.plan}\n`;
-    message += `💰 Valor: ${formData.valorPlan}\n`;
-    message += `📋 Incluye: ${formData.descripcionPlan}\n\n`;
+    message += `${lightningEmoji} *PLAN RELAMPAGO SELECCIONADO:*\n`;
+    message += `${targetEmoji} Plan: ${formData.plan}\n`;
+    message += `${moneyEmoji} Valor: ${formData.valorPlan}\n`;
+    message += `${clipboardEmoji} Incluye: ${formData.descripcionPlan}\n\n`;
     
     
-    message += '🚀 *LISTO PARA ACTIVAR!* 🚀\n';
-    message += '✅ Datos guardados en sistema\n';
-    message += '⚡ Bienvenido a la velocidad Relampago! ⚡';
+    message += `${rocketEmoji} *LISTO PARA ACTIVAR RELAMPAGO!* ${rocketEmoji}\n`;
+    message += `${checkEmoji} Datos guardados en sistema\n`;
+    message += `${lightningEmoji} Bienvenido a la velocidad Relampago! ${lightningEmoji}`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
 }
 
-// FUNCIÓN CON EMOJIS PARA WHATSAPP DEL ADMINISTRADOR - VERSIÓN RELÁMPAGO
+// FUNCIÓN CORREGIDA CON EMOJIS PARA WHATSAPP DEL ADMINISTRADOR - VERSIÓN RELÁMPAGO
 function sendNotificationToAdmin(clienteId) {
     const adminPhoneNumber = '573103509843';
     
-    let adminMessage = '⚡ *NUEVO CLIENTE REGISTRADO* ⚡\n\n';
+    // Crear emojis usando códigos Unicode
+    const lightningEmoji = String.fromCodePoint(0x26A1);
+    const idEmoji = String.fromCodePoint(0x1F194);
+    const warningEmoji = String.fromCodePoint(0x26A0);
+    const calendarEmoji = String.fromCodePoint(0x1F4C5);
+    const personEmoji = String.fromCodePoint(0x1F464);
+    const memoEmoji = String.fromCodePoint(0x1F4DD);
+    const documentEmoji = String.fromCodePoint(0x1F4C4);
+    const phoneEmoji = String.fromCodePoint(0x1F4F1);
+    const emailEmoji = String.fromCodePoint(0x1F4E7);
+    const houseEmoji = String.fromCodePoint(0x1F3E0);
+    const mapEmoji = String.fromCodePoint(0x1F5FA);
+    const cityEmoji = String.fromCodePoint(0x1F3D8);
+    const chartEmoji = String.fromCodePoint(0x1F4CA);
+    const targetEmoji = String.fromCodePoint(0x1F3AF);
+    const moneyEmoji = String.fromCodePoint(0x1F4B0);
+    const clipboardEmoji = String.fromCodePoint(0x1F4CB);
+    const checkEmoji = String.fromCodePoint(0x2705);
     
-    adminMessage += `🆔 *ID CLIENTE:* ${clienteId}\n`;
-    adminMessage += `⚠️ *ESTADO:* PENDIENTE\n`;
-    adminMessage += `📅 *FECHA:* ${formData.fechaEnvio}\n\n`;
+    let adminMessage = `${lightningEmoji} *NUEVO CLIENTE RELAMPAGO REGISTRADO* ${lightningEmoji}\n\n`;
     
-    adminMessage += `👤 *DATOS DEL CLIENTE:*\n`;
-    adminMessage += `📝 Nombre: ${formData.nombreCompleto}\n`;
-    adminMessage += `📄 Documento: ${formData.tipoDocumento} ${formData.numeroDocumento}\n`;
-    adminMessage += `📱 Celular: ${formData.celular}\n`;
-    adminMessage += `📧 Email: ${formData.correo}\n\n`;
+    adminMessage += `${idEmoji} *ID CLIENTE:* ${clienteId}\n`;
+    adminMessage += `${warningEmoji} *ESTADO:* PENDIENTE\n`;
+    adminMessage += `${calendarEmoji} *FECHA:* ${formData.fechaEnvio}\n\n`;
     
-    adminMessage += `🏠 *DIRECCION:*\n`;
-    adminMessage += `📍 ${formData.direccion}\n`;
-    adminMessage += `🗺️ ${formData.departamento} - ${formData.municipio}\n`;
-    adminMessage += `🏘️ Barrio: ${formData.barrio}\n`;
-    adminMessage += `📊 Estrato: ${formData.estrato}\n\n`;
+    adminMessage += `${personEmoji} *DATOS DEL CLIENTE:*\n`;
+    adminMessage += `${memoEmoji} Nombre: ${formData.nombreCompleto}\n`;
+    adminMessage += `${documentEmoji} Documento: ${formData.tipoDocumento} ${formData.numeroDocumento}\n`;
+    adminMessage += `${phoneEmoji} Celular: ${formData.celular}\n`;
+    adminMessage += `${emailEmoji} Email: ${formData.correo}\n\n`;
     
-    adminMessage += `⚡ *PLAN RELAMPAGO:*\n`;
-    adminMessage += `🎯 ${formData.plan}\n`;
-    adminMessage += `💰 Valor: ${formData.valorPlan}\n`;
-    adminMessage += `📋 Incluye: ${formData.descripcionPlan}\n\n`;
+    adminMessage += `${houseEmoji} *DIRECCION:*\n`;
+    adminMessage += `${mapEmoji} ${formData.direccion}\n`;
+    adminMessage += `${mapEmoji} ${formData.departamento} - ${formData.municipio}\n`;
+    adminMessage += `${cityEmoji} Barrio: ${formData.barrio}\n`;
+    adminMessage += `${chartEmoji} Estrato: ${formData.estrato}\n\n`;
     
-    adminMessage += `⚠️ *ESTADO: PENDIENTE* ⚠️\n`;
-    adminMessage += `✅ Cliente guardado en Google Sheets con ID ${clienteId}`;
+    adminMessage += `${lightningEmoji} *PLAN RELAMPAGO:*\n`;
+    adminMessage += `${targetEmoji} ${formData.plan}\n`;
+    adminMessage += `${moneyEmoji} Valor: ${formData.valorPlan}\n`;
+    adminMessage += `${clipboardEmoji} Incluye: ${formData.descripcionPlan}\n\n`;
+    
+    adminMessage += `${warningEmoji} *ESTADO: PENDIENTE* ${warningEmoji}\n`;
+    adminMessage += `${checkEmoji} Cliente guardado en Google Sheets con ID ${clienteId}`;
     
     const encodedAdminMessage = encodeURIComponent(adminMessage);
     const adminWhatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${encodedAdminMessage}`;
@@ -551,8 +592,8 @@ function resetForm() {
 
 // Enviar datos a Google Sheets - VERSIÓN RELÁMPAGO
 async function sendToGoogleSheets() {
-    const SHEET_ID = '1sKuFO21ndMuc4LnEkeMXn8vVzs8L0ZXe8C_cZibecik';
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxttQaQViwZjgtQSwmZNDe9jVmYOwUKjEbBvf0wh8DyDdj9FCAycp_2ryVPS4ZtidxX/exec';
+    const SHEET_ID = '1Jok8nOPWsDY5VME5XJ5TEGOoBnYXxCT--Yfxv1GF6mk';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOMKp7SgMP922l6X8KL7EB7EDQtUl9RjJhA-yYVIcdaGTbSheFCb-ormxJBkk6ET7A/exec';
     
     const dataToSend = {
         action: 'addRow',
@@ -577,7 +618,6 @@ async function sendToGoogleSheets() {
             celular: formData.celular || '',
             plan: formData.plan || '',
             valorPlan: formData.valorPlan || '',
-            // NUEVO CAMPO PARA RELÁMPAGO
             descripcionPlan: formData.descripcionPlan || '',
             fechaEnvio: formData.fechaEnvio || new Date().toLocaleString('es-CO')
         }
@@ -644,6 +684,7 @@ function showLoadingModal() {
             text-align: center;
             max-width: 400px;
             box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+        ">
             <div style="
                 width: 50px;
                 height: 50px;
@@ -653,7 +694,7 @@ function showLoadingModal() {
                 animation: spin 1s linear infinite;
                 margin: 0 auto 1rem;
             "></div>
-            <h3 style="color: #0066ff; margin-bottom: 1rem;">⚡ Enviando datos...</h3>
+            <h3 style="color: #0066ff; margin-bottom: 1rem;">⚡ Enviando datos Relámpago...</h3>
             <p style="color: #f8f9fa;">Por favor espere mientras procesamos su información</p>
         </div>
         <style>
@@ -704,7 +745,7 @@ function showSuccessMessage() {
             <p style="color: #f8f9fa; margin-bottom: 1rem;">Sus datos han sido enviados correctamente.</p>
             <p style="color: #f8f9fa; margin-bottom: 1rem;">📊 Guardado en Google Sheets</p>
             <p style="color: #f8f9fa; margin-bottom: 1rem;">📱 Enviado a WhatsApp</p>
-            <p style="color: #f8f9fa;">En breve nos pondremos en contacto para activar su plan Movistar. ⚡</p>
+            <p style="color: #f8f9fa;">En breve nos pondremos en contacto para activar su plan Relámpago. ⚡</p>
         </div>
     `;
     
@@ -746,7 +787,7 @@ function showErrorMessage() {
             <h2 style="color: #ff0000; margin-bottom: 1rem;">⚠️ Advertencia</h2>
             <p style="color: #f8f9fa; margin-bottom: 1rem;">Hubo un problema al guardar en Google Sheets.</p>
             <p style="color: #f8f9fa; margin-bottom: 1rem;">📱 Sus datos se enviaron a WhatsApp correctamente</p>
-            <p style="color: #f8f9fa;">Nuestro equipo procesará su solicitud manualmente. ⚡</p>
+            <p style="color: #f8f9fa;">Nuestro equipo procesará su solicitud Relámpago manualmente. ⚡</p>
         </div>
     `;
     
